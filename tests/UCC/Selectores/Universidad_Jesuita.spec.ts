@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Prueba del Menú Superior 2', async ({ page }) => {
+test('Univeridad Jesuita', async ({ page }) => {
   await page.goto('https://www.ucc.edu.ar/');
 
   //Validar que la página cargó correctamente
