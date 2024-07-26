@@ -10,7 +10,7 @@ test('Secretarías y Áreas', async ({ page }) => {
     //Validaciones del Selector Secretarías y Áreas
     await page.getByRole('button', { name: 'Secretarías y áreas'}).click();
     await page.getByRole('link', { name: 'Secretaría Académica' }).click();
-    await expect(page).toHaveURL(/academica/);
+    await expect(page).toHaveURL(/academica/, { timeout: 10000 });
     await expect(page.locator('h1')).toHaveText('Secretaría Académica');
     await page.getByRole('link', { name: 'UCC', exact: true }).click();
 

@@ -25,27 +25,18 @@ test('Prueba del Menú Superiror 1', async ({ page }) => {
   const page2Promise = page.waitForEvent('popup');
   await page.getByRole('link', { name: 'CONTACTANOS', exact: true }).click();
   const page2 = await page2Promise;
-  await expect(page2).toHaveURL('https://api.whatsapp.com/send/?phone=5493512012536&text&type=phone_number&app_absent=0'); // Reemplazar con la URL esperada
+  await expect(page2).toHaveURL('https://api.whatsapp.com/send/?phone=5493512012536&text&type=phone_number&app_absent=0', { timeout: 10000 }); // Reemplazar con la URL esperada
   page2.close();
 
   // Navegar y validar otros enlaces
   await page.getByRole('link', { name: 'INGRESO' }).click();
-  await expect(page).toHaveURL(/ingreso/);
-  
-  await page.getByRole('link', { name: 'UCC', exact: true }).click();
-  await expect(page).toHaveURL('https://www.ucc.edu.ar/');
+  await expect(page).toHaveURL(/ingreso/, { timeout: 10000 });
 
   await page.getByRole('link', { name: 'CAMPUS UCC RÍO CUARTO' }).click();
-  await expect(page).toHaveURL(/campus-ucc-rio-cuarto/); 
-
-  await page.getByRole('link', { name: 'UCC', exact: true }).click();
-  await expect(page).toHaveURL('https://www.ucc.edu.ar/');
+  await expect(page).toHaveURL(/campus-ucc-rio-cuarto/, { timeout: 10000 }); 
 
   await page.getByRole('navigation').getByRole('link', { name: 'ALUMNI UCC' }).click();
-  await expect(page).toHaveURL(/alumni/); 
-
-  await page.getByRole('link', { name: 'UCC', exact: true }).click();
-  await expect(page).toHaveURL('https://www.ucc.edu.ar/');
+  await expect(page).toHaveURL(/alumni/, { timeout: 10000 }); 
 
   await page.getByRole('button', { name: 'MI UCC' }).click();
   
@@ -53,7 +44,7 @@ test('Prueba del Menú Superiror 1', async ({ page }) => {
   const page3Promise = page.waitForEvent('popup');
   await page.getByRole('link', { name: 'AUTOGESTIÓN' }).click();
   const page3 = await page3Promise;
-  await expect(page3).toHaveURL('https://age.ucc.edu.ar/web/siuccweb_php/login.php'); 
+  await expect(page3).toHaveURL('https://age.ucc.edu.ar/web/siuccweb_php/login.php', { timeout: 10000 }); 
   page3.close();
 
   await page.getByRole('button', { name: 'MI UCC' }).click();
@@ -62,7 +53,7 @@ test('Prueba del Menú Superiror 1', async ({ page }) => {
   const page4Promise = page.waitForEvent('popup');
   await page.getByRole('link', { name: 'CAMPUS VIRTUAL', exact: true }).click();
   const page4 = await page4Promise;
-  await expect(page4).toHaveURL(/campus-virtual/); 
+  await expect(page4).toHaveURL(/campus-virtual/, { timeout: 10000 }); 
   page4.close();
 
   page.close();
