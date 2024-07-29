@@ -17,7 +17,7 @@ test('Univeridad Jesuita', async ({ page }) => {
   await page.getByRole('button', { name: 'Universidad Jesuita' }).click();
   await page.getByRole('link', { name: 'Reseña histórica' }).click();
   await expect(page).toHaveURL(/resena-historica/);
-  await expect(page.locator('h2')).toHaveText('Reseña histórica');
+  await expect(page.locator('h2.title-secondary')).toHaveText('Reseña histórica');
   await page.getByRole('link', { name: 'UCC', exact: true }).click();
 
   await page.getByRole('button', { name: 'Universidad Jesuita' }).click();

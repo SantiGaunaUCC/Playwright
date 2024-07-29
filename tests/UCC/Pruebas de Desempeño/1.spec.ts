@@ -22,8 +22,14 @@ test('Medición de tiempos de carga y métricas de rendimiento', async ({ page }
   const tti = metrics.timing.loadEventEnd - metrics.timing.navigationStart;
 
   // Imprime las métricas de rendimiento
-  console.log(`First Contentful Paint (FCP): ${fcp}ms`);
-  console.log(`Time to Interactive (TTI): ${tti}ms`);
+  console.log(`First Contentful Paint (FCP): ${fcp}ms`); //mide el tiempo desde que la navegación comienza 
+  //hasta que cualquier contenido (texto, imagen, SVG, etc.) se renderiza por primera vez en la pantalla.
+  // Esto es importante porque le da al usuario una señal visual de que la página está comenzando a cargarse.
+
+
+  console.log(`Time to Interactive (TTI): ${tti}ms`); //mide el tiempo desde que la navegación comienza hasta
+  // que la página se vuelve completamente interactiva. Esto significa que la página ha cargado lo suficiente
+  //como para responder a la interacción del usuario en un tiempo razonable.
 
   page.close();
 });
